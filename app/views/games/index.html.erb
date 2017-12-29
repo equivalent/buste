@@ -1,13 +1,28 @@
-<% @signs.each do |sign, img_url| %>
-  <%= link_to games_path(sign: sign) do %>
-    <%= image_tag img_url %>
-  <% end  %>
-<% end %>
+<div class="row">
+  <% @signs.each do |sign, img_url| %>
+    <div class="col-3">
+      <%= link_to games_path(sign: sign) do %>
+        <%= image_tag img_url %>
+      <% end  %>
+    </div>
+  <% end %>
+</div>
 
 <% if params[:sign] %>
-  <% @value_list.each do |value| %>
-    <%= link_to do %>
-      <strong><%= value %></strong>
-    <% end %>
+  <% @value_list.in_groups_of(4) do |value_group| %>
+    <div class="row">
+      <% value_group.each do |value| %>
+        <div class="col-3">
+          <%= link_to games_path(sign: params[:sign], value: value), method: 'post', class: "btn btn-primary btn-lg btn-block card-value" do %>
+            <strong><%= value %></strong>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+<% else %>
+  <%= link_to "Reset", reset_games_path, method: :post, id: 'reset-btn',  class:"btn btn-danger btn-lg", role: 'button', :data => {:confirm => 'Isto Resetovat ?'} %>
 <% end %>
+
+
+
