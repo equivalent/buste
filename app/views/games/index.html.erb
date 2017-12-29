@@ -1,0 +1,13 @@
+<% @signs.each do |sign, img_url| %>
+  <%= link_to games_path(sign: sign) do %>
+    <%= image_tag img_url %>
+  <% end  %>
+<% end %>
+
+<% if params[:sign] %>
+  <% @value_list.each do |value| %>
+    <%= link_to do %>
+      <strong><%= value %></strong>
+    <% end %>
+  <% end %>
+<% end %>

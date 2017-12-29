@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'game#index'
+  resources :games, only: [:create, :index] do
+    collection do
+      get :reset
+    end
+  end
+  root 'games#index'
 end
