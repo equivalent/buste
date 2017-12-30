@@ -1,18 +1,20 @@
-<div class="row">
-  <% @signs.each do |sign, img_url| %>
-    <div class="col-3">
-      <%= link_to games_path(sign: sign) do %>
-        <%= image_tag img_url %>
-      <% end  %>
-    </div>
-  <% end %>
-</div>
+<% @signs.in_groups_of(2) do |signs_group| %>
+  <div class="row">
+    <% signs_group.each do |sign_map| %>
+      <div class="col-6 sign">
+        <%= link_to games_path(sign: sign_map.sign) do %>
+          <%= image_tag sign_map.url %>
+        <% end  %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <% if params[:sign] %>
-  <% @value_list.in_groups_of(4) do |value_group| %>
+  <% @value_list.in_groups_of(2) do |value_group| %>
     <div class="row">
       <% value_group.each do |value| %>
-        <div class="col-3">
+        <div class="col-6">
           <%= link_to games_path(sign: params[:sign], value: value), method: 'post', class: "btn btn-primary btn-lg btn-block card-value" do %>
             <strong><%= value %></strong>
           <% end %>

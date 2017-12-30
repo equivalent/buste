@@ -16,11 +16,11 @@ class CardSign
   end
 
   def self.sign_map
-    {
-      hearth: CardSign.seven_hearth_img,
-      green: CardSign.seven_green_img,
-      acorn: CardSign.seven_acorn_img,
-      ball: CardSign.seven_ball_img,
-    }
+    [
+      OpenStruct.new(sign: :hearth, url: CardSign.seven_hearth_img),
+      OpenStruct.new(sign: :green, url: CardSign.seven_green_img),
+      OpenStruct.new(sign: :acorn, url: CardSign.seven_acorn_img),
+      OpenStruct.new(sign: :ball, url: CardSign.seven_ball_img)
+    ]
   end
 end

@@ -1,4 +1,6 @@
 @import "bootstrap";
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -20,4 +22,8 @@
 }
 #reset-btn {
   margin-top: 10em;
+}
+.sign {
+  padding: 1em 0;
+  text-align: center;
 }
