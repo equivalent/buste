@@ -3,7 +3,7 @@
     <% signs_group.each do |sign_map| %>
       <div class="col-6 sign">
         <%= link_to games_path(sign: sign_map.sign) do %>
-          <%= image_tag sign_map.url %>
+          <%= image_tag sign_map.url, class: params[:sign].to_s == sign_map.sign.to_s ? "selected" : "" %>
         <% end  %>
       </div>
     <% end %>
