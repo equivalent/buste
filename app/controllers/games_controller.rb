@@ -4,9 +4,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    if UsedCard.count > 999
+    if UsedCard.count > 9999
       UsedCard.destroy_all
-      sleep 12
+      sleep 19
     end
 
     @resp = UsedCard.add(sign: params[:sign], value: params[:value])

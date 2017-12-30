@@ -1,4 +1,6 @@
+
 @import "bootstrap";
+
 
 
 /*
@@ -26,4 +28,8 @@
 .sign {
   padding: 1em 0;
   text-align: center;
+}
+
+html .container {
+  max-width: 540px;
 }
